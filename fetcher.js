@@ -18,7 +18,7 @@ request(url, (error, response, body) => {
     console.log('statusCode:', response && response.statusCode);
   }
   // console.log('body:', body);
-  fs.writeFile('./downloads/downloaded.txt', body, err => {
+  fs.writeFile(path, body, err => {
     if (err) {
       console.log(err);
     }
