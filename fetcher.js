@@ -1,4 +1,5 @@
 const request = require('request');
+const fs = require('fs');
 const userInput = process.argv.slice(2, 4);
 const url = userInput[0];
 const path = userInput[1];
@@ -12,7 +13,9 @@ if (path.includes("http") || !path) {
 }
 
 request(url, (error, response, body) => {
-  console.log('error:', error);
-  console.log('statusCode:', response && response.statusCode);
+  if (error) {
+    console.log('error:', error);
+    console.log('statusCode:', response && response.statusCode);
+  }
   console.log('body:', body);
 });
